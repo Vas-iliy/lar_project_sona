@@ -14,12 +14,13 @@ class SiteController extends Controller
     protected $room_rep;
     protected $comment_rep;
     protected $blog_rep;
+    protected $inform_rep;
     protected $filter_rep;
     protected $contact_rep;
     protected $social_rep;
     protected $guest_rep;
     protected $check_rep;
-    protected $count_room_rep;
+    protected $count_rep;
 
     protected $page;
     protected $template;
