@@ -2,11 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d40237bf-002b-40e9-b502-36ffb5b41487" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_10_15_141749_change_service_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/ContactRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/ImageRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/PageRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/SocialRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/TextRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/settings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/sona/content_menu.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/sona/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/sona/home/content.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/sona/home/home.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/sona/menu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/2916e4e6-4132-41bd-9f4a-efec767ac9f2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2916e4e6-4132-41bd-9f4a-efec767ac9f2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/lar_project_sona.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lar_project_sona.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sona/layouts/site.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sona/layouts/site.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,13 +61,6 @@
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="lar_project_sona: schema" type="ebfa3cd1:MariaImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="lar_project_sona: schema" type="ebfa3cd1:MariaImplModel$Schema" />
-        <item name="rooms: table" type="dbc44a63:MariaImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -163,10 +172,13 @@
       <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
       <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/lavary/laravel-menu" />
     </include_path>
   </component>
   <component name="ProjectId" id="1iumukK6U55X89tHR7mPzKki5xh" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -177,7 +189,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Repositories" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -188,11 +200,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\server\OpenServer\domains\lar_project_sona\app\Repositories" />
       <recent name="D:\server\OpenServer\domains\lar_project_sona\resources" />
       <recent name="D:\server\OpenServer\domains\lar_project_sona\app\Http\Controllers" />
       <recent name="D:\server\OpenServer\domains\lar_project_sona\app" />
       <recent name="D:\server\OpenServer\domains\lar_project_sona\resources\views\sona\home" />
-      <recent name="D:\server\OpenServer\domains\lar_project_sona\resources\views\sona" />
     </key>
   </component>
   <component name="RunManager">
@@ -211,7 +223,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602766075228</updated>
-      <workItem from="1602766085512" duration="9432000" />
+      <workItem from="1602766085512" duration="17026000" />
     </task>
     <servers />
   </component>
@@ -223,22 +235,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1602766560381" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1602770118161">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1602777106881">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602770118161" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602777106881" />
     <state width="211" height="457" key="HiddenNamespacesPopup" timestamp="1602770888636">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="211" height="457" key="HiddenNamespacesPopup/0.0.1536.824@0.0.1536.824" timestamp="1602770888636" />
-    <state x="495" y="227" key="NewPhpClassDialog" timestamp="1602767447379">
+    <state x="495" y="227" key="NewPhpClassDialog" timestamp="1602775769381">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="495" y="227" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1602767447379" />
-    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1602768922613">
+    <state x="495" y="227" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1602775769381" />
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1602795007362">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1602768922613" />
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1602795007362" />
     <state x="633" y="159" key="com.intellij.database.view.ui.DbObjectDialog" timestamp="1602767267024">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
