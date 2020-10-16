@@ -57,7 +57,7 @@
                                 </tr>
                                 </tbody>
                             </table>
-                            <a href="#" class="primary-btn">More Details</a>
+                            <a href="{{route('rooms.show', ['alias' => \Illuminate\Support\Str::replaceFirst(' ', '-', $room->title)])}}" class="primary-btn">More Details</a>
                         </div>
                     </div>
                 </div>

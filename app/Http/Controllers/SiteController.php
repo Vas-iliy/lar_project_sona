@@ -157,8 +157,8 @@ class SiteController extends Controller
         return $room;
     }
 
-    protected function getComment($take) {
-        $comment = $this->comment_rep->get('*', $take);
+    protected function getComment($take = false, $where = false) {
+        $comment = $this->comment_rep->get('*', $take, $where);
 
         return $comment;
     }

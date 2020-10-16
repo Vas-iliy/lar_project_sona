@@ -12,6 +12,7 @@ use App\Repositories\ServiceRepository;
 use App\Repositories\SocialRepository;
 use App\Repositories\TextRepository;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 class RoomsController extends SiteController
 {
@@ -42,11 +43,18 @@ class RoomsController extends SiteController
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Throwable
      */
-    public function show($id)
+    public function show($alias)
     {
-        //
+        $room = $this->room_rep->one('*', ['title', Str::replaceFirst('-', ' ', $alias)]);
+        $comments = $this->getComment(false, ['room_id', $room->id]);
+
+        $content = view(env('THEME') . '.' . $this->page . '.one', compact(['room', 'comments']))->render();
+        $this->vars = Arr::add($this->vars, 'content', $content);
+
+        return $this->renderOutput();
     }
 }
