@@ -2,27 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d40237bf-002b-40e9-b502-36ffb5b41487" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Repositories/ContactRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/ImageRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/PageRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/SocialRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/TextRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/settings.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/sona/content_menu.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/sona/footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/sona/home/content.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/sona/home/home.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/sona/menu.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/BlogRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/CommentRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/RoomRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/ServiceRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/sona/search.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/2916e4e6-4132-41bd-9f4a-efec767ac9f2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2916e4e6-4132-41bd-9f4a-efec767ac9f2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/lar_project_sona.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lar_project_sona.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Blog.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Blog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Filter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Filter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Repository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Repository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/sona/layouts/site.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sona/layouts/site.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/sona/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/sona/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sona/home/content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sona/home/content.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,6 +171,9 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/lavary/laravel-menu" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
     </include_path>
   </component>
   <component name="ProjectId" id="1iumukK6U55X89tHR7mPzKki5xh" />
@@ -223,7 +224,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602766075228</updated>
-      <workItem from="1602766085512" duration="17026000" />
+      <workItem from="1602766085512" duration="27223000" />
     </task>
     <servers />
   </component>
@@ -247,10 +248,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="495" y="227" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1602775769381" />
-    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1602795007362">
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1602797250945">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1602795007362" />
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1602797250945" />
+    <state x="478" y="54" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1602804656140">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="478" y="54" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1602804656140" />
     <state x="633" y="159" key="com.intellij.database.view.ui.DbObjectDialog" timestamp="1602767267024">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -4,6 +4,8 @@
 namespace App\Repositories;
 
 
+use Illuminate\Support\Arr;
+
 class Repository
 {
     protected $model;

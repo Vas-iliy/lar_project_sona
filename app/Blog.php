@@ -13,4 +13,8 @@ class Blog extends Model
     public function informs() {
         return $this->hasMany('App\Inform');
     }
+
+    public function filters() {
+        return $this->hasMany('App\Filter');
+    }
 }

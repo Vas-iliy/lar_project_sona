@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Page;
+use App\Repositories\BlogRepository;
+use App\Repositories\CommentRepository;
 use App\Repositories\ContactRepository;
 use App\Repositories\ImageRepository;
 use App\Repositories\PageRepository;
+use App\Repositories\RoomRepository;
+use App\Repositories\ServiceRepository;
 use App\Repositories\SocialRepository;
 use App\Repositories\TextRepository;
 use App\Social;
@@ -34,13 +39,18 @@ class SiteController extends Controller
     protected $vars = [];
 
     public function __construct(PageRepository $page_rep, SocialRepository $social_rep, ContactRepository $contact_rep,
-                TextRepository $text_rep, ImageRepository $image_rep)
+                TextRepository $text_rep, ImageRepository $image_rep, ServiceRepository $service_rep, RoomRepository $room_rep,
+                CommentRepository $comment_rep, BlogRepository $blog_rep)
     {
         $this->page_rep = $page_rep;
         $this->social_rep = $social_rep;
         $this->contact_rep = $contact_rep;
         $this->text_rep = $text_rep;
         $this->image_rep = $image_rep;
+        $this->service_rep = $service_rep;
+        $this->room_rep = $room_rep;
+        $this->comment_rep = $comment_rep;
+        $this->blog_rep = $blog_rep;
     }
 
     protected function renderOutput()
@@ -60,6 +70,22 @@ class SiteController extends Controller
         $this->vars = Arr::add($this->vars, 'footer', $footer);
 
         return view($this->template)->with($this->vars);
+    }
+
+    public function arrChange($array) {
+        $newArray = [];
+        foreach ($array as $k => $arr) {
+            $k = $arr->position;
+            $newArray = Arr::add($newArray, $k, $arr);
+        }
+
+        return $newArray;
+    }
+
+    protected function getPage($page) {
+        $id = Page::select('id')->where('alias', $page)->first()->id;
+
+        return $id;
     }
 
     private function getMenu()
@@ -99,10 +125,42 @@ class SiteController extends Controller
         return $text;
     }
 
-    protected function getImage() {
-        $image = $this->image_rep->get();
+    protected function getImage($where, $take = false) {
+        $image = $this->image_rep->get('*', $take, $where);
 
         return $image;
+    }
+
+    protected function getText($where) {
+        $text = $this->text_rep->get('*', false, $where);
+
+        return $text;
+    }
+
+    protected function getService($where, $take = false) {
+        $service = $this->service_rep->get('*', $take, $where);
+
+        return $service;
+    }
+
+    protected function getRoom($take = false) {
+        $room = $this->room_rep->get('*', $take);
+        $room->load('services');
+
+        return $room;
+    }
+
+    protected function getComment($take) {
+        $comment = $this->comment_rep->get('*', $take);
+
+        return $comment;
+    }
+
+    protected function getBlog($take) {
+        $blog = $this->blog_rep->get('*', $take);
+        $blog->load('filters');
+
+        return $blog;
     }
 
 }
