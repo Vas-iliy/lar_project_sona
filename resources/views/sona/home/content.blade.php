@@ -182,14 +182,16 @@
 <!-- Blog Section Begin -->
 <section class="blog-section spad">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title">
-                    <span>Hotel News</span>
-                    <h2>Our Blog & Event</h2>
+        @if($text['blog'])
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span>{{$text['blog']->title}}</span>
+                        <p>{!! $text['blog']->text !!}</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
         @if($blog)
             <div class="row">
                 @foreach($blog as $k=>$b)

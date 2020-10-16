@@ -6,4 +6,5 @@ return [
     'count_rooms_home' => 4,
     'count_comments_home' => 3,
     'count_blog_home' => 5,
+    'count_rooms' => 6,
 ];

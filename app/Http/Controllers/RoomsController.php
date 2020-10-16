@@ -13,33 +13,40 @@ use App\Repositories\SocialRepository;
 use App\Repositories\TextRepository;
 use Illuminate\Support\Arr;
 
-class HomeController extends SiteController
+class RoomsController extends SiteController
 {
     public function __construct(PageRepository $page_rep, SocialRepository $social_rep, ContactRepository $contact_rep, TextRepository $text_rep, ImageRepository $image_rep, ServiceRepository $service_rep, RoomRepository $room_rep, CommentRepository $comment_rep, BlogRepository $blog_rep)
     {
         parent::__construct($page_rep, $social_rep, $contact_rep, $text_rep, $image_rep, $service_rep, $room_rep, $comment_rep, $blog_rep);
 
-        $this->page = 'home';
+        $this->page = 'rooms';
         $this->template = env('THEME') . '.' . $this->page . '.' . $this->page;
     }
 
-    public function index()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Throwable
+     */
+    public function index($alias = false)
     {
-        $id = $this->getPage($this->page);
+        $rooms = $this->getRoom(false, $alias, config('settings.count_rooms'));
 
-        $text = $this->getText(['page_id', $id]);
-        $text = $this->arrChange($text);
-        $images = $this->getImage(['page_id', $id]);
-        $imagesAbout = $this->getImage(['page_id', $this->getPage('about')], config('settings.count_image_home_about'));
-        $services = $this->getService(['page_id', $id]);
-        $rooms = $this->getRoom(config('settings.count_rooms_home'));
-        $comments = $this->getComment(config('settings.count_comments_home'));
-        $blog = $this->getBlog(config('settings.count_blog_home'));
-
-        $content = view(env('THEME') . '.' . $this->page .'.content', compact(['images', 'text', 'imagesAbout',
-            'services', 'rooms', 'comments', 'blog']))->render();
+        $content = view(env('THEME') . '.' . $this->page . '.content', compact(['rooms', 'alias']))->render();
         $this->vars = Arr::add($this->vars, 'content', $content);
 
         return $this->renderOutput();
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
     }
 }

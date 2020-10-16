@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Page;
 use App\Repositories\BlogRepository;
 use App\Repositories\CommentRepository;
@@ -143,8 +144,14 @@ class SiteController extends Controller
         return $service;
     }
 
-    protected function getRoom($take = false) {
-        $room = $this->room_rep->get('*', $take);
+    protected function getRoom($take = false, $alias = false, $paginate = false) {
+        $where = false;
+        if ($alias) {
+            $id = Category::select('id')->where('alias', $alias)->first()->id;
+            $where = ['category_id', $id];
+        }
+
+        $room = $this->room_rep->get('*', $take, $where, $paginate);
         $room->load('services');
 
         return $room;
