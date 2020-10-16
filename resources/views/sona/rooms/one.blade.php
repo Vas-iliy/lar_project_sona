@@ -1,22 +1,3 @@
-@if($room)
-    <div class="breadcrumb-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-text">
-                        <div class="bt-option">
-                            <a href="{{url('/')}}">Home</a>
-                            <span>{{$room->title}}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-@endif
-<!-- Breadcrumb Section End -->
-
-<!-- Room Details Section Begin -->
 <section class="room-details-section spad">
     <div class="container">
         <div class="row">
