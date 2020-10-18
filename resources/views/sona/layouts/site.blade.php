@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{asset(env('THEME'))}}/css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="{{asset(env('THEME'))}}/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="{{asset(env('THEME'))}}/css/style.css" type="text/css">
+    <link rel="stylesheet" href="{{asset(env('THEME'))}}/css/main.css" type="text/css">
 </head>
 
 <body>

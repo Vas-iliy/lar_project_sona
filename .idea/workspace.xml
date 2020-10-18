@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d40237bf-002b-40e9-b502-36ffb5b41487" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/sona/about/about.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/sona/about/content.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/sona/blog/blog.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/sona/blog/content.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2916e4e6-4132-41bd-9f4a-efec767ac9f2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2916e4e6-4132-41bd-9f4a-efec767ac9f2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/sona/rooms/one.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sona/rooms/one.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sona/home/content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sona/home/content.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +48,13 @@
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="lar_project_sona: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="lar_project_sona: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="blogs: table" type="dbc44a63:MariaImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -176,7 +186,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Repositories" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/sona" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -187,11 +198,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\server\OpenServer\domains\lar_project_sona\resources\views\sona" />
       <recent name="D:\server\OpenServer\domains\lar_project_sona\app\Repositories" />
       <recent name="D:\server\OpenServer\domains\lar_project_sona\resources" />
       <recent name="D:\server\OpenServer\domains\lar_project_sona\app\Http\Controllers" />
       <recent name="D:\server\OpenServer\domains\lar_project_sona\app" />
-      <recent name="D:\server\OpenServer\domains\lar_project_sona\resources\views\sona\home" />
     </key>
   </component>
   <component name="RunManager">
@@ -210,7 +221,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602766075228</updated>
-      <workItem from="1602766085512" duration="36827000" />
+      <workItem from="1602766085512" duration="39724000" />
     </task>
     <servers />
   </component>
@@ -222,10 +233,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1602766560381" />
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602881312454">
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603038999135">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1602881312454" />
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1603038999135" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1602777106881">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -250,5 +261,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="633" y="159" key="com.intellij.database.view.ui.DbObjectDialog/0.0.1536.824@0.0.1536.824" timestamp="1602767267024" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1603040176210">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1603040176210" />
   </component>
 </project>

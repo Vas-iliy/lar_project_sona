@@ -201,7 +201,7 @@
                                 @foreach($b->filters as $filter)
                                     <span class="b-tag">{{$filter->title}}</span>
                                 @endforeach
-                                <h4><a href="#">{{$b->title}}</a></h4>
+                                <h4><a href="{{route('news.show', ['alias' => $b->id])}}">{{$b->title}}</a></h4>
                                     @if($b->created_at)
                                      <div class="b-time"><i class="icon_clock_alt"></i> {{$b->created_at->format('d m, Y')}}</div>
                                         @endif

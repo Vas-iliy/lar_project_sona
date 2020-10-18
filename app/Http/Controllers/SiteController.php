@@ -163,8 +163,8 @@ class SiteController extends Controller
         return $comment;
     }
 
-    protected function getBlog($take) {
-        $blog = $this->blog_rep->get('*', $take);
+    protected function getBlog($take = false, $paginate = false) {
+        $blog = $this->blog_rep->get('*', $take, false, $paginate);
         $blog->load('filters');
 
         return $blog;
