@@ -27,6 +27,7 @@ class BlogController extends SiteController
      * Display a listing of the resource.
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Throwable
      */
     public function index()
     {
@@ -41,11 +42,23 @@ class BlogController extends SiteController
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Throwable
      */
     public function show($id)
     {
-        //
+        $blog = $this->blog_rep->one('*', ['id', $id]);
+        $blog->load('images');
+        $blog->load('informs');
+        $blog->images = $this->arrChange($blog->images);
+        $blog->informs = $this->arrChange($blog->informs);
+
+        $socials = $this->getSocial();
+
+        $content = view(env('THEME') . '.' . $this->page . '.one', compact(['blog', 'socials']))->render();
+        $this->vars = Arr::add($this->vars, 'content', $content);
+
+        return $this->renderOutput();
     }
 }

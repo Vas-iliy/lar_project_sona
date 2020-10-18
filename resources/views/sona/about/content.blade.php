@@ -4,7 +4,7 @@
             <div class="about-page-services">
                 <div class="row">
                     @foreach($images as $image)
-                        @if($image->positions == 'top')
+                        @if($image->position == 'top')
                             <div class="col-md-4">
                                 <div class="ap-service-item set-bg" data-setbg="{{asset(env('THEME'))}}/img/about/{{$image->img}}">
                                     <div class="api-text">
@@ -46,7 +46,7 @@
     <div class="container">
             <div class="row">
                 @foreach($images as $img)
-                    @if($img->positions == 'gallery')
+                    @if($img->position == 'gallery')
                         <div class="col-6">
                             <div class="gallery-item set-bg" data-setbg="{{asset(env('THEME'))}}/img/gallery/{{$img->img}}">
                                 <div class="gi-text">

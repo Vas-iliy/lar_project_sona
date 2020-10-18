@@ -76,7 +76,9 @@ class SiteController extends Controller
     public function arrChange($array) {
         $newArray = [];
         foreach ($array as $k => $arr) {
-            $k = $arr->position;
+            if ($arr->position) {
+                $k = $arr->position;
+            }
             $newArray = Arr::add($newArray, $k, $arr);
         }
 
