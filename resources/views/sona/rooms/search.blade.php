@@ -15,7 +15,7 @@
                 <tr>
                     <th scope="row">{{$k + 1}}</th>
                     <td>
-                        <a href="{{route('reserv', ['alias' => \Illuminate\Support\Str::replaceFirst(' ', '-', $room->title), 'count' => $count])}}">
+                        <a href="{{route('rooms.show', ['alias' => \Illuminate\Support\Str::replaceFirst(' ', '-', $room->title)])}}">
                             <img class="search-img" src="{{asset(env('THEME'))}}/img/room/{{$room->img}}">
                         </a>
                     </td>

@@ -1358,7 +1358,7 @@ ul, ol {
 	letter-spacing: 1px;
 	margin-bottom: 45px;
 }
-.review-add .ra-form input {
+.review-add input {
 	width: 100%;
 	height: 50px;
 	border: 1px solid #e5e5e5;
@@ -1367,19 +1367,19 @@ ul, ol {
 	padding-left: 20px;
 	margin-bottom: 25px;
 }
-.review-add .ra-form input::-webkit-input-placeholder {
+.review-add input::-webkit-input-placeholder {
 	color: #aaaab3;
 }
-.review-add .ra-form input::-moz-placeholder {
+.review-add input::-moz-placeholder {
 	color: #aaaab3;
 }
-.review-add .ra-form input:-ms-input-placeholder {
+.review-add input:-ms-input-placeholder {
 	color: #aaaab3;
 }
-.review-add .ra-form input::-ms-input-placeholder {
+.review-add input::-ms-input-placeholder {
 	color: #aaaab3;
 }
-.review-add .ra-form input::placeholder {
+.review-add input::placeholder {
 	color: #aaaab3;
 }
 .review-add .ra-form h5 {
@@ -1423,7 +1423,7 @@ ul, ol {
 .review-add .ra-form textarea::placeholder {
 	color: #aaaab3;
 }
-.review-add .ra-form button {
+.review-add button {
 	font-size: 13px;
 	font-weight: 700;
 	text-transform: uppercase;

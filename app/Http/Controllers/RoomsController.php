@@ -71,6 +71,21 @@ class RoomsController extends SiteController
         return $this->renderOutput();
     }
 
+    public function reservation (Request $request, $alias) {
+        if ($request->isMethod('post')) {
+            $search = $request->except('_token');
+
+            $format = 'Y-m-d';
+            $search['checkIn'] = $this->dateChange($search['checkIn'], $format);
+            $search['checkOut'] = $this->dateChange($search['checkOut'], $format);
+            $search['title'] = Str::replaceFirst('-', ' ', $alias);
+
+            $request = $this->searchRooms($search);
+            dd($request);
+
+        }
+    }
+
     public function search(Request $request) {
         if ($request->isMethod('post')) {
             $search = $request->except('_token');
@@ -87,54 +102,51 @@ class RoomsController extends SiteController
 
             return $this->renderOutput();
         }
-    }
 
-    public function reservation($alias, $count) {
-        $room = $this->room_rep->one('*', ['title', Str::replaceFirst('-', ' ', $alias)]);
-        $comments = $this->getComment(false, ['room_id', $room->id]);
-
-        $content = view(env('THEME') . '.' . $this->page . '.reservation', compact(['room', 'comments', 'count']))->render();
-        $this->vars = Arr::add($this->vars, 'content', $content);
-
-        return $this->renderOutput();
     }
 
     private function searchRooms($request) {
-        $rooms = Room::select('*')->where('capacity', '>', $request['guest']-1)->get();
+        if (!isset($request['title'])) {
+            $rooms = Room::select('*')->where('capacity', '>', $request['guest']-1)->get();
+        }
+        else {
+            $rooms = Room::select('*')->where('title', $request['title'])->get();
+        }
         $rooms->load('checks');
         $rooms->load('counts');
         $search = [];
         $k = 0;
-
         foreach ($rooms as $room) {
-            foreach ($room->counts as $count) {
+            foreach ($room->counts as $i => $count) {
                 if ($count->count == $request['room']) {
+                    for ($n = $i + 1; $n < count($room->counts); $n++) {
+                        $room->counts->forget($n);
+                    }
+
                     $search = Arr::add($search, $k, $room);
                     $k++;
+                }
+                else {
+                    $room->counts->forget($i);
                 }
             }
         }
         $result = [];
-        $k = 0;
-        foreach ($search as $room) {
-            foreach ($room->checks as $check) {
-                if (strtotime($check->check_in) > strtotime($request['checkIn']) || $check->count_id != $request['room']) {
-                    if (strtotime($check->check_in) >= strtotime($request['checkOut']) || $check->count_id != $request['room']) {
-                        $result = Arr::add($result, $k, $room);
-                        $k++;
+        foreach ($search as $k => $room) {
+            if ($room->checks->toArray()) {
+                foreach ($room->checks as $check) {
+                    if (strtotime($check->check_out) > strtotime($request['checkIn']) &&
+                        strtotime($check->check_in) < strtotime($request['checkOut']) &&
+                        $check->count_id == $request['room']) {
+                            $result[] = $k;
                     }
                 }
-                elseif (strtotime($check->check_out) <= strtotime($request['checkIn']) || $check->count_id != $request['room']) {
-                    $result = Arr::add($result, $k, $room);
-                    $k++;
-                }
-            }
-            if (!$room->checks->toArray()) {
-                $result = Arr::add($result, $k, $room);
-                $k++;
             }
         }
+        foreach ($result as $delete) {
+            unset($search[$delete]);
+        }
 
-        return $result;
+        return $search;
     }
 }

@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d40237bf-002b-40e9-b502-36ffb5b41487" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/sona/rooms/reservation.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/sona/form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RoomsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RoomsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sona/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/sona/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/sona/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/sona/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sona/rooms/one.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sona/rooms/one.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sona/rooms/reservation.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/sona/rooms/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sona/rooms/search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sona/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sona/search.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +194,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Repositories" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lar_corporateSite_first" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -226,7 +229,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602766075228</updated>
-      <workItem from="1602766085512" duration="76236000" />
+      <workItem from="1602766085512" duration="92356000" />
     </task>
     <servers />
   </component>
@@ -242,10 +245,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1603038999135" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1602777106881">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1603137802583">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602777106881" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603137802583" />
     <state width="211" height="457" key="HiddenNamespacesPopup" timestamp="1603044093320">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -254,10 +257,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="495" y="227" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1602775769381" />
-    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1603087678868">
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1603136724010">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1603087678868" />
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1603136724010" />
     <state x="478" y="54" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1603066690809">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -266,10 +269,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="633" y="159" key="com.intellij.database.view.ui.DbObjectDialog/0.0.1536.824@0.0.1536.824" timestamp="1602767267024" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1603083724669">
+    <state x="425" y="187" key="run.anything.popup" timestamp="1603134947875">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1603083724669" />
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1603134947875" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1603040176210">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

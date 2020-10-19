@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::post('rooms/search', 'RoomsController@search')->name('search');
-Route::get('rooms/reservation/{alias}{count}', 'RoomsController@reservation')->name('reserv');
+Route::post('rooms/reservation/{alias}', 'RoomsController@reservation')->name('reserv');
 Route::resource('rooms', 'RoomsController')->parameters(['rooms' => 'alias']);
 
 Route::get('rooms/cat/{cat_alias?}', 'RoomsController@index')->name('roomsCat')->where('cat_alias', '[\w-]+');
