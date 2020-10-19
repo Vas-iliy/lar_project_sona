@@ -12,12 +12,9 @@
     <label for="guest">Guests:</label>
     <select name="guest" id="guest">
         @if(\Illuminate\Support\Facades\URL::current() == url('/'))
-        <option value="1">1 Adults</option>
-        <option value="2">2 Adults</option>
-        <option value="3">3 Adults</option>
-        <option value="4">4 Adults</option>
-        <option value="5">5 Adults</option>
-        <option value="6">6 Adults</option>
+            @for($i=1; $i<=6; $i++)
+                <option value="{{$i}}">{{$i}} Adults</option>
+            @endfor
         @else
             @if($guests)
                 @for($i=1; $i<=$guests; $i++)

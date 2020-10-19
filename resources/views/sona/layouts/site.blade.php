@@ -31,6 +31,15 @@
 
 @yield('navigations')
 
+@if(isset($errors))
+    <div style="background-color:red; text-align: center;" >
+        <ul>
+            @foreach($errors->all() as $error)
+                <li style="list-style-type: none"><h3>{{$error}}</h3></li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 @yield('content')
 

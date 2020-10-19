@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Check;
+use App\Http\Requests\ReservationRequest;
+use App\Http\Requests\SearchRequest;
 use App\Repositories\BlogRepository;
 use App\Repositories\CheckRepository;
 use App\Repositories\CommentRepository;
@@ -71,7 +73,7 @@ class RoomsController extends SiteController
         return $this->renderOutput();
     }
 
-    public function reservation (Request $request, $alias) {
+    public function reservation (ReservationRequest $request, $alias) {
         if ($request->isMethod('post')) {
             $search = $request->except('_token');
 
@@ -81,12 +83,11 @@ class RoomsController extends SiteController
             $search['title'] = Str::replaceFirst('-', ' ', $alias);
 
             $request = $this->searchRooms($search);
-            dd($request);
 
         }
     }
 
-    public function search(Request $request) {
+    public function search(SearchRequest $request) {
         if ($request->isMethod('post')) {
             $search = $request->except('_token');
 
