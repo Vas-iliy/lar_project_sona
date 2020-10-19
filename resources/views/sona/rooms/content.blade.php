@@ -16,9 +16,7 @@
         </div>
     </div>
 </div>
-<!-- Breadcrumb Section End -->
 
-<!-- Rooms Section Begin -->
 @if($rooms)
 <section class="rooms-section spad">
     <div class="container">
@@ -38,7 +36,7 @@
                                 </tr>
                                 <tr>
                                     <td class="r-o">Capacity:</td>
-                                    <td>{{$room->capacity}}</td>
+                                    <td>Max person {{$room->capacity}}</td>
                                 </tr>
                                 <tr>
                                     <td class="r-o">Bed:</td>

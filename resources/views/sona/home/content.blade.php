@@ -22,9 +22,7 @@
         </div>
     @endif
 </section>
-<!-- Hero Section End -->
 
-<!-- About Us Section Begin -->
 <section class="aboutus-section spad">
     <div class="container">
         <div class="row">
@@ -35,7 +33,7 @@
                             <span>{{$text['about']->title}}</span>
                         </div>
                         <p>{!! $text['about']->text !!}</p>
-                        <a href="#" class="primary-btn about-btn">Read More</a>
+                        <a href="{{route('about')}}" class="primary-btn about-btn">Read More</a>
                     </div>
                 @endif
             </div>
@@ -55,9 +53,7 @@
         </div>
     </div>
 </section>
-<!-- About Us Section End -->
 
-<!-- Services Section End -->
 <section class="services-section spad">
     <div class="container">
         @if($text['service'])
@@ -85,9 +81,7 @@
             @endif
     </div>
 </section>
-<!-- Services Section End -->
 
-<!-- Home Room Section Begin -->
 @if($rooms)
 <section class="hp-room-section">
     <div class="container-fluid">
@@ -107,7 +101,7 @@
                                     </tr>
                                     <tr>
                                         <td class="r-o">Capacity:</td>
-                                        <td>{{$room->capacity}}</td>
+                                        <td>Max person {{$room->capacity}}</td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">Bed:</td>
@@ -136,9 +130,7 @@
     </div>
 </section>
 @endif
-<!-- Home Room Section End -->
 
-<!-- Testimonial Section Begin -->
 <section class="testimonial-section spad">
     <div class="container">
         @if($text['comment'])
@@ -177,9 +169,7 @@
             @endif
     </div>
 </section>
-<!-- Testimonial Section End -->
 
-<!-- Blog Section Begin -->
 <section class="blog-section spad">
     <div class="container">
         @if($text['blog'])
@@ -213,4 +203,3 @@
         @endif
     </div>
 </section>
-<!-- Blog Section End -->

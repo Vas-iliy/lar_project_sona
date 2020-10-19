@@ -27,8 +27,8 @@ class SiteController extends Controller
     protected $room_rep;
     protected $comment_rep;
     protected $blog_rep;
-    protected $inform_rep;
-    protected $filter_rep;
+    protected $inform_rep;//
+    protected $filter_rep;//
     protected $contact_rep;
     protected $social_rep;
     protected $guest_rep;
@@ -57,7 +57,7 @@ class SiteController extends Controller
     protected function renderOutput()
     {
         $menu = $this->getMenu();
-        $social = $this->getSocial();
+        $social = $this->getSocial(config('settings.count_socials_header'));
         $contacts = $this->getContact(config('settings.count_contacts_header'));
 
         $navigations = view(env('THEME') . '.menu', compact(['menu', 'social', 'contacts']))->render();
@@ -89,6 +89,13 @@ class SiteController extends Controller
         $id = Page::select('id')->where('alias', $page)->first()->id;
 
         return $id;
+    }
+
+    protected function dateChange($date, $format) {
+        $date = date_create($date);
+        $date = date_format($date, $format);
+
+        return $date;
     }
 
     private function getMenu()

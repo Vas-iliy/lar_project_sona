@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d40237bf-002b-40e9-b502-36ffb5b41487" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/sona/blog/one.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/CheckRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/sona/rooms/search.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RoomsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RoomsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/sona/about/content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sona/about/content.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Repository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Repository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sona/home/content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sona/home/content.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sona/rooms/content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sona/rooms/content.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sona/rooms/one.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sona/rooms/one.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sona/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sona/search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +189,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/sona" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Repositories" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -198,8 +201,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\server\OpenServer\domains\lar_project_sona\resources\views\sona" />
       <recent name="D:\server\OpenServer\domains\lar_project_sona\app\Repositories" />
+      <recent name="D:\server\OpenServer\domains\lar_project_sona\resources\views\sona" />
       <recent name="D:\server\OpenServer\domains\lar_project_sona\resources" />
       <recent name="D:\server\OpenServer\domains\lar_project_sona\app\Http\Controllers" />
       <recent name="D:\server\OpenServer\domains\lar_project_sona\app" />
@@ -221,7 +224,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602766075228</updated>
-      <workItem from="1602766085512" duration="45828000" />
+      <workItem from="1602766085512" duration="72291000" />
     </task>
     <servers />
   </component>
@@ -249,18 +252,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="495" y="227" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1602775769381" />
-    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1603040944357">
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1603084309479">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1603040944357" />
-    <state x="478" y="54" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1603044106748">
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1603084309479" />
+    <state x="478" y="54" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1603066690809">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="478" y="54" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1603044106748" />
+    <state x="478" y="54" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1603066690809" />
     <state x="633" y="159" key="com.intellij.database.view.ui.DbObjectDialog" timestamp="1602767267024">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="633" y="159" key="com.intellij.database.view.ui.DbObjectDialog/0.0.1536.824@0.0.1536.824" timestamp="1602767267024" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1603083724669">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1603083724669" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1603040176210">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -28,7 +28,7 @@
                                 </tr>
                                 <tr>
                                     <td class="r-o">Capacity:</td>
-                                    <td>{{$room->capacity}}</td>
+                                    <td>Max person {{$room->capacity}}</td>
                                 </tr>
                                 <tr>
                                     <td class="r-o">Bed:</td>
