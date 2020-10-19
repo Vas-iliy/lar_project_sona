@@ -80,12 +80,23 @@ class RoomsController extends SiteController
             $search['checkOut'] = $this->dateChange($search['checkOut'], $format);
 
             $rooms = $this->searchRooms($search);
+            $count = $request['room'];
 
-            $content = view(env('THEME') . '.' . $this->page . '.search', compact(['rooms']))->render();
+            $content = view(env('THEME') . '.' . $this->page . '.search', compact(['rooms', 'count']))->render();
             $this->vars = Arr::add($this->vars, 'content', $content);
 
             return $this->renderOutput();
         }
+    }
+
+    public function reservation($alias, $count) {
+        $room = $this->room_rep->one('*', ['title', Str::replaceFirst('-', ' ', $alias)]);
+        $comments = $this->getComment(false, ['room_id', $room->id]);
+
+        $content = view(env('THEME') . '.' . $this->page . '.reservation', compact(['room', 'comments', 'count']))->render();
+        $this->vars = Arr::add($this->vars, 'content', $content);
+
+        return $this->renderOutput();
     }
 
     private function searchRooms($request) {

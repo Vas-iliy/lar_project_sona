@@ -2,3 +2,7 @@
     background-color: #dfa974;
     color: white;
 }
+img.search-img {
+    min-width: 50%;
+    height: 150px;
+}
