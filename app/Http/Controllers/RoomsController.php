@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Check;
 use App\Http\Requests\ReservationRequest;
 use App\Http\Requests\SearchRequest;
 use App\Repositories\BlogRepository;
@@ -16,9 +15,7 @@ use App\Repositories\ServiceRepository;
 use App\Repositories\SocialRepository;
 use App\Repositories\TextRepository;
 use App\Room;
-use Doctrine\DBAL\Schema\Schema;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 

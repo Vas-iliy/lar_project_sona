@@ -29,4 +29,8 @@ class Room extends Model
     public function category() {
         return $this->belongsTo('App\Category');
     }
+
+    public function facts() {
+        return $this->belongsToMany('App\Fact');
+    }
 }

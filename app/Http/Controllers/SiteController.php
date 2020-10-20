@@ -13,8 +13,6 @@ use App\Repositories\RoomRepository;
 use App\Repositories\ServiceRepository;
 use App\Repositories\SocialRepository;
 use App\Repositories\TextRepository;
-use App\Social;
-use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
 class SiteController extends Controller
@@ -31,9 +29,9 @@ class SiteController extends Controller
     protected $filter_rep;//
     protected $contact_rep;
     protected $social_rep;
-    protected $guest_rep;
+    protected $guest_rep;//
     protected $check_rep;
-    protected $count_rep;
+    protected $count_rep;//
 
     protected $page;
     protected $template;
