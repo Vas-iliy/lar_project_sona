@@ -13,6 +13,7 @@ use App\Repositories\ServiceRepository;
 use App\Repositories\SocialRepository;
 use App\Repositories\TextRepository;
 use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -56,5 +57,26 @@ class RegisterController extends SiteController
         $user->save();
 
         return redirect($this->redirectTo())->with('status', 'Вы успешно зарегестрированы');
+    }
+
+    public function login() {
+        if (!Auth::check()) {
+            $content = view(env('THEME') . '.' . $this->page . '.content_login')->render();
+            $this->vars = Arr::add($this->vars, 'content', $content);
+
+            return $this->renderOutput();
+        }
+        else {
+            return redirect()->back();
+        }
+    }
+
+    public function auth(Request $request) {
+        $data = $request->only(['name', 'password']);
+
+        if (Auth::attempt($data)) {
+            return redirect('/');
+        }
+
     }
 }

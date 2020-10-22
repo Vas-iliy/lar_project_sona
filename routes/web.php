@@ -28,10 +28,9 @@ Route::resource('news', 'BlogController')->parameters(['news'=>'alias']);
 
 Route::get('contact', 'ContactController@index')->name('contact');
 
-/*Route::get('login', 'Auth\LoginController@showLoginForm');
-Route::post('login', 'Auth\LoginController@login');
-Route::get('logout', 'Auth\LoginController@logout');*/
-
 Route::get('/register', 'RegisterController@index')->name('register');
 Route::post('/register', 'RegisterController@register')->name('registerUser');
+
+Route::get('/login', 'RegisterController@login')->name('login');
+Route::post('/login', 'RegisterController@auth')->name('auth');
 
