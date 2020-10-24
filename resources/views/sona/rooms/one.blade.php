@@ -54,52 +54,39 @@
                         @foreach($comments as $comment)
                             <div class="review-item">
                                 <div class="ri-pic">
-                                    <img src="img/room/avatar/avatar-1.jpg" alt="">
+                                    <img src="{{asset(env('THEME'))}}/img/room/avatar/{{$comment->user->image}}" alt="">
                                 </div>
                                 <div class="ri-text">
                                     <span>{{$comment->created_at->format('d M, Y')}}</span>
                                     <div class="rating">
-                                        <i class="icon_star"></i>
-                                        <i class="icon_star"></i>
-                                        <i class="icon_star"></i>
-                                        <i class="icon_star"></i>
-                                        <i class="icon_star-half_alt"></i>
+                                        @for($i=0; $i < (int)$comment->user->fact->ratings[0]->rating; $i++)
+                                            <i class="icon_star"></i>
+                                        @endfor
                                     </div>
-                                    <h5>Brandon Kelley</h5>
+                                    <h5>{{$comment->user->name}}</h5>
                                     <p>{!! $comment->text !!}</p>
                                 </div>
                             </div>
                        @endforeach
                     </div>
                     @endif
-                <div class="review-add">
-                    <h4>Add Review</h4>
-                    <form action="{{route('rooms.index')}}" class="ra-form" method="post">
-                        @csrf
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <input type="text" placeholder="Name*">
-                            </div>
-                            <div class="col-lg-6">
-                                <input type="text" placeholder="Email*">
-                            </div>
-                            <div class="col-lg-12">
-                                <div>
-                                    <h5>You Rating:</h5>
-                                    <div class="rating">
-                                        <i class="icon_star"></i>
-                                        <i class="icon_star"></i>
-                                        <i class="icon_star"></i>
-                                        <i class="icon_star"></i>
-                                        <i class="icon_star-half_alt"></i>
+                    @if($user)
+                        <div class="review-add">
+                            <h4>Add Review</h4>
+                            <form action="{{route('comment')}}" class="ra-form" method="post">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <textarea name="text" placeholder="Your Review"></textarea>
+                                        <input type="hidden" name="room_id" value="{{$room->id}}">
+                                        <input type="hidden" name="user_id" value="{{\Illuminate\Support\Facades\Auth::id()}}">
+                                        <button type="submit">Отправить</button>
                                     </div>
                                 </div>
-                                <textarea placeholder="Your Review"></textarea>
-                                <button type="submit">Submit Now</button>
-                            </div>
+                            </form>
                         </div>
-                    </form>
-                </div>
+                    @endif
+
             </div>
 
             <div class="col-lg-6">

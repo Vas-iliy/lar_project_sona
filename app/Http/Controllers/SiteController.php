@@ -32,6 +32,7 @@ class SiteController extends Controller
     protected $guest_rep;//
     protected $check_rep;
     protected $count_rep;//
+    protected $user_rep;
 
     protected $page;
     protected $template;
