@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d40237bf-002b-40e9-b502-36ffb5b41487" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/sona/css/site.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/sona/auth/content_login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Comment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sona/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/sona/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/sona/layouts/site.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sona/layouts/site.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_20_003415_create_rating_fact_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sona/home/content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sona/home/content.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/sona/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sona/menu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -228,7 +228,7 @@
       <workItem from="1603220716195" duration="8923000" />
       <workItem from="1603295432415" duration="1427000" />
       <workItem from="1603311805734" duration="1103000" />
-      <workItem from="1603314343046" duration="9909000" />
+      <workItem from="1603314343046" duration="14000000" />
     </task>
     <servers />
   </component>
@@ -272,10 +272,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603225905640" />
-    <state x="478" y="54" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1603066690809">
+    <state x="649" y="302" width="322" height="233" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1603573212078">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="478" y="54" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1603066690809" />
+    <state x="649" y="302" width="322" height="233" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.824@0.0.1536.824" timestamp="1603573212078" />
+    <state x="478" y="54" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1603573474190">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="478" y="54" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1603573474190" />
     <state x="633" y="159" key="com.intellij.database.view.ui.DbObjectDialog" timestamp="1602767267024">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

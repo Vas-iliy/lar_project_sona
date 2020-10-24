@@ -30,15 +30,9 @@
                             <a href="{{route('register')}}">Register</a>
                         </div>
                     @else
-                        <div class="person">
-                            <button class="btn btn-person dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{\Illuminate\Support\Facades\Auth::user()->name}}
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">{{\Illuminate\Support\Facades\Auth::id()}}</a>
-                                <a class="dropdown-item active" href="#">Active link</a>
-                                <a class="dropdown-item" href="#">Another link</a>
-                            </div>
+                        <div class="auth">
+                            <a href="{{route('users.show', ['user' => \Illuminate\Support\Facades\Auth::user()->name])}}">{{\Illuminate\Support\Str::upper(\Illuminate\Support\Facades\Auth::user()->name)}}</a>
+                            <a href="{{route('logout')}}">Logout</a>
                         </div>
                     @endif
                 </div>

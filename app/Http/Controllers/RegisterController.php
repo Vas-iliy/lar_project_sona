@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterRequest;
+use App\Providers\RouteServiceProvider;
 use App\Repositories\BlogRepository;
 use App\Repositories\CommentRepository;
 use App\Repositories\ContactRepository;
@@ -29,7 +30,7 @@ class RegisterController extends SiteController
     }
 
     public function redirectTo() {
-        return '/';
+        return RouteServiceProvider::HOME;
     }
 
     public function index() {
@@ -75,8 +76,13 @@ class RegisterController extends SiteController
         $data = $request->only(['name', 'password']);
 
         if (Auth::attempt($data)) {
-            return redirect('/');
+            return redirect($this->redirectTo());
         }
 
+    }
+
+    public function logout() {
+        Auth::logout();
+        return redirect()->back();
     }
 }

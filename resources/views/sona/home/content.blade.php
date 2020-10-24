@@ -152,15 +152,13 @@
                                 <p>{!! $comment->text !!}</p>
                                 <div class="ti-author">
                                     <div class="rating">
-                                        <i class="icon_star"></i>
-                                        <i class="icon_star"></i>
-                                        <i class="icon_star"></i>
-                                        <i class="icon_star"></i>
-                                        <i class="icon_star-half_alt"></i>
+                                        @for($i=0; $i < (int)$comment->user->fact->ratings[0]->rating; $i++)
+                                            <i class="icon_star"></i>
+                                        @endfor
                                     </div>
-                                    <h5> - Alexander Vasquez</h5>
+                                    <h5> - {{$comment->user->name}}</h5>
                                 </div>
-                                <img src="img/testimonial-logo.png" alt="">
+                                <img src="{{asset(env('THEME'))}}/img/{{$comment->user->image}}" alt="">
                             </div>
                         @endforeach
                     </div>

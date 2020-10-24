@@ -30,7 +30,9 @@ Route::get('contact', 'ContactController@index')->name('contact');
 
 Route::get('/register', 'RegisterController@index')->name('register');
 Route::post('/register', 'RegisterController@register')->name('registerUser');
-
 Route::get('/login', 'RegisterController@login')->name('login');
 Route::post('/login', 'RegisterController@auth')->name('auth');
+Route::get('/logout', 'RegisterController@logout')->name('logout');
+
+Route::resource('users', 'UserController');
 

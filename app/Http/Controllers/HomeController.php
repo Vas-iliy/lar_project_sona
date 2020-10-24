@@ -34,7 +34,8 @@ class HomeController extends SiteController
         $imagesAbout = $this->getImage(['page_id', $this->getPage('about')], config('settings.count_image_home_about'));
         $services = $this->getService(['page_id', $id]);
         $rooms = $this->getRoom(config('settings.count_rooms_home'));
-        $comments = $this->getComment(config('settings.count_comments_home'));
+        $comments = $this->getComment(config('settings.count_comments_home'));/*
+        dd($comments[0]->user->fact->ratings[0]);*/
         $blog = $this->getBlog(config('settings.count_blog_home'));
 
         $content = view(env('THEME') . '.' . $this->page .'.content', compact(['images', 'text', 'imagesAbout',

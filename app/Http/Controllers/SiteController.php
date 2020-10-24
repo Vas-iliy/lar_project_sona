@@ -166,7 +166,7 @@ class SiteController extends Controller
 
     protected function getComment($take = false, $where = false) {
         $comment = $this->comment_rep->get('*', $take, $where);
-
+        $comment->load('user');
         return $comment;
     }
 

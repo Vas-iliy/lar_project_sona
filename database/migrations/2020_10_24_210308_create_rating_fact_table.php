@@ -15,12 +15,12 @@ class CreateRatingFactTable extends Migration
     {
         Schema::create('rating_fact', function (Blueprint $table) {
             $table->id();
-
             $table->bigInteger('rating_id')->unsigned()->nullable();
             $table->foreign('rating_id')->references('id')->on('ratings');
 
             $table->bigInteger('fact_id')->unsigned()->nullable();
             $table->foreign('fact_id')->references('id')->on('facts');
+            $table->timestamps();
         });
     }
 
