@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Check;
+use App\Fact;
 use App\Http\Requests\ReservationRequest;
 use App\Http\Requests\SearchRequest;
 use App\Repositories\BlogRepository;
@@ -16,6 +18,7 @@ use App\Repositories\SocialRepository;
 use App\Repositories\TextRepository;
 use App\Room;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -79,8 +82,39 @@ class RoomsController extends SiteController
             $search['checkOut'] = $this->dateChange($search['checkOut'], $format);
             $search['title'] = Str::replaceFirst('-', ' ', $alias);
 
-            $request = $this->searchRooms($search);
+            $id = Room::select('id')->where('title', $search['title'])->first()->id;
 
+            $data = $this->searchRooms($search);
+
+            if ($data) {
+                $new = Check::firstOrCreate([
+                    'check_in' => $search['checkIn'],
+                    'check_out' => $search['checkOut'],
+                    'room_id' => $id,
+                    'count_id' => $search['room']
+                ]);
+                $new->save();
+                $guest = Fact::firstOrCreate([
+                    'name' => $search['name'],
+                    'email' => $search['email'],
+                    'phone' => $search['phone']
+                ]);
+                $guest->save();
+
+                $fact_id = Fact::max('id');
+
+                DB::table('fact_room')->insert([
+                    'room_id' => $id,
+                    'fact_id' => $fact_id
+                ]);
+
+                return redirect('/')->with('status', 'Вы зарезервировали комнату');
+
+
+            }
+            else {
+                return redirect()->back()->with('status', 'На эту дату такой комнаты нет, выбирите другую');
+            }
         }
     }
 
