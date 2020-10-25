@@ -2,7 +2,7 @@
     <div class="top-nav">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     @if($contacts)
                         <ul class="tn-left">
                             @foreach($contacts as $contact)
@@ -11,7 +11,7 @@
                         </ul>
                     @endif
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-2">
                     <div class="tn-right">
                         @if($social)
                             <div class="top-social">
@@ -20,7 +20,6 @@
                                 @endforeach
                             </div>
                         @endif
-                        {{--<a href="#" class="bk-btn">Booking Now</a>--}}
                     </div>
                 </div>
                 <div class="col-lg-4">

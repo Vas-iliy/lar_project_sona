@@ -116,15 +116,24 @@ class RoomsController extends SiteController
                     'check_in' => $search['checkIn'], 'check_out' => $search['checkOut'], 'room_id' => $id, 'count_id' => $search['room']
                 ]);
                 $new->save();
-                $guest = Fact::firstOrCreate([
-                    'name' => $search['name'], 'email' => $search['email'], 'phone' => $search['phone']
-                ]);
-                $guest->save();
-                $fact_id = Fact::max('id');
-                DB::table('fact_room')->insert([
-                    'room_id' => $id,
-                    'fact_id' => $fact_id
-                ]);
+                if (!Auth::check()) {
+                    $guest = Fact::firstOrCreate([
+                        'name' => $search['name'], 'email' => $search['email'], 'phone' => $search['phone']
+                    ]);
+                    $guest->save();
+                    $fact_id = Fact::max('id');
+                    DB::table('fact_room')->insert([
+                        'room_id' => $id,
+                        'fact_id' => $fact_id
+                    ]);
+                }
+                else {
+                    $fact_id = Auth::user()->fact->id;
+                    DB::table('fact_room')->insert([
+                        'room_id' => $id,
+                        'fact_id' => $fact_id
+                    ]);
+                }
 
                 return redirect('/')->with('status', 'Вы зарезервировали комнату');
             }

@@ -94,20 +94,24 @@
                     <form action="{{route('reserv', ['alias' => \Illuminate\Support\Str::replaceFirst(' ', '-', $room->title)])}}" class="ra-form" method="post">
                         @csrf
                         @include(env('THEME') . '.form', ['count' => $room->counts, 'guests' => $room->capacity])
-                        <div class="review-add">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <input type="text" name="name" placeholder="Name*">
-                                </div>
-                                <div class="col-lg-6">
-                                    <input type="text" name="email" placeholder="Email*">
-                                </div>
-                                <div class="col-lg-12">
-                                    <input type="text" name="phone" placeholder="Phone*">
-                                    <button type="submit">Reservation</button>
+                            <div class="review-add">
+                                <div class="row">
+                                    @if(!\Illuminate\Support\Facades\Auth::check())
+                                    <div class="col-lg-6">
+                                        <input type="text" name="name" placeholder="Name*">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="text" name="email" placeholder="Email*">
+                                    </div>
+                                    @endif
+                                    <div class="col-lg-12">
+                                        @if(!\Illuminate\Support\Facades\Auth::check())
+                                            <input type="text" name="phone" placeholder="Phone*">
+                                        @endif
+                                        <button type="submit">Reservation</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                     </form>
                 </div>
             </div>
