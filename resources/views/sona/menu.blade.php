@@ -30,7 +30,7 @@
                         </div>
                     @else
                         <div class="auth">
-                            <a href="{{route('users.show', ['user' => \Illuminate\Support\Facades\Auth::user()->name])}}">{{\Illuminate\Support\Str::upper(\Illuminate\Support\Facades\Auth::user()->name)}}</a>
+                            <a href="{{route('users.edit', ['user' => \Illuminate\Support\Facades\Auth::user()->name])}}">{{\Illuminate\Support\Str::upper(\Illuminate\Support\Facades\Auth::user()->name)}}</a>
                             <a href="{{route('logout')}}">Logout</a>
                         </div>
                     @endif

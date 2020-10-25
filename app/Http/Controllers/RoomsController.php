@@ -134,7 +134,6 @@ class RoomsController extends SiteController
     private function getOneRoom($where) {
         return $this->room_rep->one('id', $where);
     }
-
     private function checkInsert($atr) {
         return $this->check_rep->insert($atr);
     }

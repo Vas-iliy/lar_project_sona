@@ -31,7 +31,7 @@ class Repository
 
     public function one($select, $where)
     {
-        return $builder = $this->model->select($select)->where($where[0], $where[1])->first();
+        return $this->model->select($select)->where($where[0], $where[1])->first();
     }
 
     public function arrChange($array) {

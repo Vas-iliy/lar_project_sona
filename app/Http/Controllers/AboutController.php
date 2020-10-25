@@ -15,7 +15,9 @@ use Illuminate\Support\Arr;
 
 class AboutController extends SiteController
 {
-    public function __construct(PageRepository $page_rep, SocialRepository $social_rep, ContactRepository $contact_rep, TextRepository $text_rep, ImageRepository $image_rep, ServiceRepository $service_rep, RoomRepository $room_rep, CommentRepository $comment_rep, BlogRepository $blog_rep)
+    public function __construct(PageRepository $page_rep, SocialRepository $social_rep, ContactRepository $contact_rep,
+                                TextRepository $text_rep, ImageRepository $image_rep, ServiceRepository $service_rep, RoomRepository $room_rep,
+                                CommentRepository $comment_rep, BlogRepository $blog_rep)
     {
         parent::__construct($page_rep, $social_rep, $contact_rep, $text_rep, $image_rep, $service_rep, $room_rep, $comment_rep, $blog_rep);
 

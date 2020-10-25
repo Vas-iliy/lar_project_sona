@@ -18,20 +18,15 @@ use Illuminate\Support\Arr;
 class SiteController extends Controller
 {
     protected $page_rep;
-    protected $category_rep;
     protected $image_rep;
     protected $text_rep;
     protected $service_rep;
     protected $room_rep;
     protected $comment_rep;
     protected $blog_rep;
-    protected $inform_rep;//
-    protected $filter_rep;//
     protected $contact_rep;
     protected $social_rep;
-    protected $guest_rep;//
     protected $check_rep;
-    protected $count_rep;//
     protected $user_rep;
     protected $db_rep;
     protected $fact_rep;
@@ -87,9 +82,7 @@ class SiteController extends Controller
     }
 
     protected function getPage($page) {
-        $id = Page::select('id')->where('alias', $page)->first()->id;
-
-        return $id;
+        return Page::select('id')->where('alias', $page)->first()->id;
     }
 
     protected function dateChange($date, $format) {
@@ -119,39 +112,23 @@ class SiteController extends Controller
     }
 
     protected function getSocial($take = false) {
-        $social = $this->social_rep->get('*', $take);
-
-        return $social;
+        return $this->social_rep->get('*', $take);;
     }
-
     protected function getContact($take = false) {
-        $contact = $this->contact_rep->get('*', $take);
-
-        return $contact;
+        return $this->contact_rep->get('*', $take);
     }
-
     protected function getTextOne($where) {
-        $text = $this->text_rep->one('*', $where);
-
-        return $text;
+        return $this->text_rep->one('*', $where);
     }
-
     protected function getImage($where, $take = false) {
-        $image = $this->image_rep->get('*', $take, $where);
-
-        return $image;
+        return $this->image_rep->get('*', $take, $where);
     }
 
     protected function getText($where) {
-        $text = $this->text_rep->get('*', false, $where);
-
-        return $text;
+        return $this->text_rep->get('*', false, $where);
     }
-
     protected function getService($where, $take = false) {
-        $service = $this->service_rep->get('*', $take, $where);
-
-        return $service;
+        return $this->service_rep->get('*', $take, $where);
     }
 
     protected function getRoom($take = false, $alias = false, $paginate = false, $where = false) {
@@ -173,6 +150,7 @@ class SiteController extends Controller
     protected function getComment($take = false, $where = false) {
         $comment = $this->comment_rep->get('*', $take, $where);
         $comment->load('user');
+
         return $comment;
     }
 
