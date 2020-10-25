@@ -14,6 +14,7 @@ use App\Repositories\SocialRepository;
 use App\Repositories\TextRepository;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class UsersController extends SiteController
 {
@@ -45,13 +46,32 @@ class UsersController extends SiteController
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(UserRequest $request, $id)
     {
-        $data = $request->except(['_token', '_method']);
+        $dataUser = $request->only('name');
+        if ($request->image) {
+            $image = $request->file('image');
+
+            if ($image->isValid()) {
+                $dataUser['image'] = Str::random(8) . '.jpg';
+                $image->move(public_path() . '/'. env('THEME') . '/img/room/avatar' , $dataUser['image']);
+            }
+        }
         $user = Auth::user();
+        $user->fill($dataUser);
 
+        $dataFact = $request->only(['name_f', 'surname_f', 'email_f', 'phone_f']);
+        $data = [];
+        foreach ($dataFact as $k => $value) {
+            $data[Str::replaceFirst('_f', '', $k)] = $value;
+        }
+        $fact = $user->fact;
+        $fact->fill($data);
 
+        if ($user->update() && $fact->update()) {
+            return redirect('/')->with('status', 'вы изменились');
+        }
     }
 }

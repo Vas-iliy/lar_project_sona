@@ -25,7 +25,6 @@
                                 <div class="col-12">
                                     <input type="text" name="phone_f" value="{{$user->fact->phone}}">
                                     <input type="file" name="image">
-                                    <input type="hidden" name="email" value="{{$user->email}}">
                                     <button type="submit">Изменить</button>
                                 </div>
                             </div>

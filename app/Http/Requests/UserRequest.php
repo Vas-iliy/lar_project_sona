@@ -26,10 +26,10 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'nameF' => 'required|max:255',
-            'surname' => 'required|max:255',
-            'email' => 'required|email',
-            'phone' => 'required|integer',
+            'name_f' => 'required|max:255',
+            'surname_f' => 'required|max:255',
+            'email_f' => 'required|email',
+            'phone_f' => 'required|integer',
         ];
     }
 }
