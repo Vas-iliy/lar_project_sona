@@ -7,7 +7,6 @@ use App\Page;
 use App\Repositories\BlogRepository;
 use App\Repositories\CommentRepository;
 use App\Repositories\ContactRepository;
-use App\Repositories\DbRepository;
 use App\Repositories\ImageRepository;
 use App\Repositories\PageRepository;
 use App\Repositories\RoomRepository;

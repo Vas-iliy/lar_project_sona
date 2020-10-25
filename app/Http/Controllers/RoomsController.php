@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Check;
 use App\Comment;
 use App\Fact;
 use App\Http\Requests\CommentsRequest;
@@ -21,11 +20,8 @@ use App\Repositories\ServiceRepository;
 use App\Repositories\SocialRepository;
 use App\Repositories\TextRepository;
 use App\Repositories\UserRepository;
-use App\Room;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class RoomsController extends SiteController

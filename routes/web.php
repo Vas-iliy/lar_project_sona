@@ -35,5 +35,4 @@ Route::get('/login', 'RegisterController@login')->name('login');
 Route::post('/login', 'RegisterController@auth')->name('auth');
 Route::get('/logout', 'RegisterController@logout')->name('logout');
 
-Route::resource('users', 'UserController');
-
+Route::resource('users', 'UserController')->only(['show', 'edit', 'update']);
