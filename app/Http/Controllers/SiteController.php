@@ -7,6 +7,7 @@ use App\Page;
 use App\Repositories\BlogRepository;
 use App\Repositories\CommentRepository;
 use App\Repositories\ContactRepository;
+use App\Repositories\DbRepository;
 use App\Repositories\ImageRepository;
 use App\Repositories\PageRepository;
 use App\Repositories\RoomRepository;
@@ -33,6 +34,8 @@ class SiteController extends Controller
     protected $check_rep;
     protected $count_rep;//
     protected $user_rep;
+    protected $db_rep;
+    protected $fact_rep;
 
     protected $page;
     protected $template;
@@ -152,7 +155,10 @@ class SiteController extends Controller
         return $service;
     }
 
-    protected function getRoom($take = false, $alias = false, $paginate = false) {
+    protected function getRoom($take = false, $alias = false, $paginate = false, $where = false) {
+        if ($where) {
+            return $this->room_rep->get('*', false, false, false, $where);
+        }
         $where = false;
         if ($alias) {
             $id = Category::select('id')->where('alias', $alias)->first()->id;

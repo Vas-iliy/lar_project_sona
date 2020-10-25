@@ -48,11 +48,7 @@ class BlogController extends SiteController
      */
     public function show($id)
     {
-        $blog = $this->blog_rep->one('*', ['id', $id]);
-        $blog->load('images');
-        $blog->load('informs');
-        $blog->images = $this->arrChange($blog->images);
-        $blog->informs = $this->arrChange($blog->informs);
+        $blog = $this->getOneBlog(['id', $id]);
 
         $socials = $this->getSocial();
 
@@ -60,5 +56,9 @@ class BlogController extends SiteController
         $this->vars = Arr::add($this->vars, 'content', $content);
 
         return $this->renderOutput();
+    }
+
+    private function getOneBlog($where) {
+        return $this->blog_rep->one('*', $where);
     }
 }

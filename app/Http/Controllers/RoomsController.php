@@ -12,6 +12,8 @@ use App\Repositories\BlogRepository;
 use App\Repositories\CheckRepository;
 use App\Repositories\CommentRepository;
 use App\Repositories\ContactRepository;
+use App\Repositories\DbRepository;
+use App\Repositories\FactRepository;
 use App\Repositories\ImageRepository;
 use App\Repositories\PageRepository;
 use App\Repositories\RoomRepository;
@@ -31,12 +33,14 @@ class RoomsController extends SiteController
     public function __construct(PageRepository $page_rep, SocialRepository $social_rep, ContactRepository $contact_rep,
                                 TextRepository $text_rep, ImageRepository $image_rep, ServiceRepository $service_rep,
                                 RoomRepository $room_rep, CommentRepository $comment_rep, BlogRepository $blog_rep,
-                                CheckRepository $check_rep, UserRepository $user_rep)
+                                CheckRepository $check_rep, UserRepository $user_rep, FactRepository $fact_rep, DbRepository $db_rep)
     {
         parent::__construct($page_rep, $social_rep, $contact_rep, $text_rep, $image_rep, $service_rep, $room_rep, $comment_rep, $blog_rep);
 
         $this->check_rep = $check_rep;
         $this->user_rep = $user_rep;
+        $this->fact_rep = $fact_rep;
+        $this->db_rep = $db_rep;
 
         $this->page = 'rooms';
         $this->template = env('THEME') . '.' . $this->page . '.' . $this->page;
@@ -69,7 +73,7 @@ class RoomsController extends SiteController
      */
     public function show($alias)
     {
-        $room = $this->room_rep->one('*', ['title', Str::replaceFirst('-', ' ', $alias)]);
+        $room = $this->room_rep->one('*', ['alias', $alias]);
         $comments = $this->getComment(false, ['room_id', $room->id]);
         $user = $this->getUser(Auth::id(), $room->id);
 
@@ -82,7 +86,6 @@ class RoomsController extends SiteController
     private function getUser($id, $r) {
         if ($id) {
             $user = $this->user_rep->one('*', ['id', $id]);
-            $user->load('fact');
 
             if ($user->fact->rooms) {
                 foreach ($user->fact->rooms as $room) {
@@ -105,34 +108,23 @@ class RoomsController extends SiteController
             $format = 'Y-m-d';
             $search['checkIn'] = $this->dateChange($search['checkIn'], $format);
             $search['checkOut'] = $this->dateChange($search['checkOut'], $format);
-            $search['title'] = Str::replaceFirst('-', ' ', $alias);
 
-            $id = Room::select('id')->where('title', $search['title'])->first()->id;
+            $id = $this->getOneRoom(['alias', $alias])->id;
 
             $data = $this->searchRooms($search);
 
             if ($data) {
-                $new = Check::firstOrCreate([
-                    'check_in' => $search['checkIn'], 'check_out' => $search['checkOut'], 'room_id' => $id, 'count_id' => $search['room']
-                ]);
-                $new->save();
+                $atrCheck = ['check_in' => $search['checkIn'], 'check_out' => $search['checkOut'], 'room_id' => $id, 'count_id' => $search['room']];
+                $this->checkInsert($atrCheck);
                 if (!Auth::check()) {
-                    $guest = Fact::firstOrCreate([
-                        'name' => $search['name'], 'email' => $search['email'], 'phone' => $search['phone']
-                    ]);
-                    $guest->save();
-                    $fact_id = Fact::max('id');
-                    DB::table('fact_room')->insert([
-                        'room_id' => $id,
-                        'fact_id' => $fact_id
-                    ]);
+                    $atrFact = ['name' => $search['name'], 'email' => $search['email'], 'phone' => $search['phone']];
+                    $this->factInsert($atrFact);
+                    $atrFact_room = ['room_id' => $id, 'fact_id' => Fact::max('id')];
+                    $this->fact_roomInsert('fact_room', $atrFact_room);
                 }
                 else {
-                    $fact_id = Auth::user()->fact->id;
-                    DB::table('fact_room')->insert([
-                        'room_id' => $id,
-                        'fact_id' => $fact_id
-                    ]);
+                    $atrFact_room = ['room_id' => $id, 'fact_id' => Auth::user()->fact->id];
+                    $this->fact_roomInsert('fact_room', $atrFact_room);
                 }
 
                 return redirect('/')->with('status', 'Вы зарезервировали комнату');
@@ -141,6 +133,20 @@ class RoomsController extends SiteController
                 return redirect()->back()->with('status', 'На эту дату такой комнаты нет, выбирите другую');
             }
         }
+    }
+
+    private function getOneRoom($where) {
+        return $this->room_rep->one('id', $where);
+    }
+
+    private function checkInsert($atr) {
+        return $this->check_rep->insert($atr);
+    }
+    private function factInsert($atr) {
+        return $this->fact_rep->insert($atr);
+    }
+    private function fact_roomInsert($table, $atr) {
+        return $this->db_rep->db($table, $atr);
     }
 
     public function search(SearchRequest $request) {
@@ -164,13 +170,11 @@ class RoomsController extends SiteController
 
     private function searchRooms($request) {
         if (!isset($request['title'])) {
-            $rooms = Room::select('*')->where('capacity', '>', $request['guest']-1)->get();
+            $rooms = $this->getRoom(false, false, false, ['capacity', '>', $request['guest']-1]);
         }
         else {
-            $rooms = Room::select('*')->where('title', $request['title'])->get();
+            $rooms = $this->getRoom(false, false, false, ['title', $request['title']]);
         }
-        $rooms->load('checks');
-        $rooms->load('counts');
         $search = [];
         $k = 0;
         foreach ($rooms as $room) {

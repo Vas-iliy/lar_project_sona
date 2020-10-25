@@ -91,7 +91,7 @@
 
             <div class="col-lg-6">
                 <div class="booking-form">
-                    <form action="{{route('reserv', ['alias' => \Illuminate\Support\Str::replaceFirst(' ', '-', $room->title)])}}" class="ra-form" method="post">
+                    <form action="{{route('reserv', ['alias' => $room->alias])}}" class="ra-form" method="post">
                         @csrf
                         @include(env('THEME') . '.form', ['count' => $room->counts, 'guests' => $room->capacity])
                             <div class="review-add">
