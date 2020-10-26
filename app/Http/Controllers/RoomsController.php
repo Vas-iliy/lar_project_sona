@@ -104,44 +104,13 @@ class RoomsController extends SiteController
             $format = 'Y-m-d';
             $search['checkIn'] = $this->dateChange($search['checkIn'], $format);
             $search['checkOut'] = $this->dateChange($search['checkOut'], $format);
+            $search['alias'] = $alias;
 
-            $id = $this->getOneRoom(['alias', $alias])->id;
+            $data = $this->room_rep->searchRooms($search);
+            $result = $this->room_rep->reservations($data, $search);
 
-            $data = $this->searchRooms($search);
-
-            if ($data) {
-                $atrCheck = ['check_in' => $search['checkIn'], 'check_out' => $search['checkOut'], 'room_id' => $id, 'count_id' => $search['room']];
-                $this->checkInsert($atrCheck);
-                if (!Auth::check()) {
-                    $atrFact = ['name' => $search['name'], 'email' => $search['email'], 'phone' => $search['phone']];
-                    $this->factInsert($atrFact);
-                    $atrFact_room = ['room_id' => $id, 'fact_id' => Fact::max('id')];
-                    $this->fact_roomInsert('fact_room', $atrFact_room);
-                }
-                else {
-                    $atrFact_room = ['room_id' => $id, 'fact_id' => Auth::user()->fact->id];
-                    $this->fact_roomInsert('fact_room', $atrFact_room);
-                }
-
-                return redirect('/')->with('status', 'Вы зарезервировали комнату');
-            }
-            else {
-                return redirect()->back()->with('status', 'На эту дату такой комнаты нет, выбирите другую');
-            }
+            return back()->with($result);
         }
-    }
-
-    private function getOneRoom($where) {
-        return $this->room_rep->one('id', $where);
-    }
-    private function checkInsert($atr) {
-        return $this->check_rep->insert($atr);
-    }
-    private function factInsert($atr) {
-        return $this->fact_rep->insert($atr);
-    }
-    private function fact_roomInsert($table, $atr) {
-        return $this->db_rep->db($table, $atr);
     }
 
     public function search(SearchRequest $request) {
@@ -152,7 +121,7 @@ class RoomsController extends SiteController
             $search['checkIn'] = $this->dateChange($search['checkIn'], $format);
             $search['checkOut'] = $this->dateChange($search['checkOut'], $format);
 
-            $rooms = $this->searchRooms($search);
+            $rooms = $this->room_rep->searchRooms($search);
             $count = $request['room'];
 
             $content = view(env('THEME') . '.' . $this->page . '.search', compact(['rooms', 'count']))->render();
@@ -163,48 +132,6 @@ class RoomsController extends SiteController
 
     }
 
-    private function searchRooms($request) {
-        if (!isset($request['title'])) {
-            $rooms = $this->getRoom(false, false, false, ['capacity', '>', $request['guest']-1]);
-        }
-        else {
-            $rooms = $this->getRoom(false, false, false, ['title', $request['title']]);
-        }
-        $search = [];
-        $k = 0;
-        foreach ($rooms as $room) {
-            foreach ($room->counts as $i => $count) {
-                if ($count->count == $request['room']) {
-                    for ($n = $i + 1; $n < count($room->counts); $n++) {
-                        $room->counts->forget($n);
-                    }
-
-                    $search = Arr::add($search, $k, $room);
-                    $k++;
-                }
-                else {
-                    $room->counts->forget($i);
-                }
-            }
-        }
-        $result = [];
-        foreach ($search as $k => $room) {
-            if ($room->checks->toArray()) {
-                foreach ($room->checks as $check) {
-                    if (strtotime($check->check_out) > strtotime($request['checkIn']) &&
-                        strtotime($check->check_in) < strtotime($request['checkOut']) &&
-                        $check->count_id == $request['room']) {
-                            $result[] = $k;
-                    }
-                }
-            }
-        }
-        foreach ($result as $delete) {
-            unset($search[$delete]);
-        }
-
-        return $search;
-    }
 
     public function comment(CommentsRequest $request) {
         $data = $request->except('_token');
