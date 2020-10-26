@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d40237bf-002b-40e9-b502-36ffb5b41487" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/sona/admin/admin.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/sona/admin/menu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sona/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sona/menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +231,7 @@
       <workItem from="1603599611513" duration="8318000" />
       <workItem from="1603620100352" duration="8970000" />
       <workItem from="1603689169473" duration="17521000" />
-      <workItem from="1603717808431" duration="4790000" />
+      <workItem from="1603717808431" duration="8308000" />
     </task>
     <servers />
   </component>
@@ -241,10 +247,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1603351909516" />
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603691715990">
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603723701387">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1603691715990" />
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1603723701387" />
     <state x="571" y="308" key="ComposerInitDialogKey" timestamp="1603221025663">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -257,14 +263,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="211" height="457" key="HiddenNamespacesPopup/0.0.1536.824@0.0.1536.824" timestamp="1603044093320" />
-    <state x="495" y="227" key="NewPhpClassDialog" timestamp="1602775769381">
+    <state x="495" y="227" key="NewPhpClassDialog" timestamp="1603723587552">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="495" y="227" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1602775769381" />
-    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1603703207387">
+    <state x="495" y="227" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1603723587552" />
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1603725070697">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1603703207387" />
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1603725070697" />
     <state x="277" y="55" key="SettingsEditor" timestamp="1603225905640">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -281,6 +287,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="633" y="159" key="com.intellij.database.view.ui.DbObjectDialog/0.0.1536.824@0.0.1536.824" timestamp="1602767267024" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1603727264641">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1603727264641" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1603627093124">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

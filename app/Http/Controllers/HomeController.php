@@ -12,6 +12,7 @@ use App\Repositories\ServiceRepository;
 use App\Repositories\SocialRepository;
 use App\Repositories\TextRepository;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Gate;
 
 class HomeController extends SiteController
 {

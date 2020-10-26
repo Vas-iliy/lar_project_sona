@@ -36,3 +36,8 @@ Route::post('/login', 'RegisterController@auth')->name('auth');
 Route::get('/logout', 'RegisterController@logout')->name('logout');
 
 Route::resource('users', 'UsersController')->only(['show', 'edit', 'update']);
+
+Route::middleware('auth')->prefix('/admin')->group(function () {
+    Route::get('/', 'Admin\IndexController@index')->name('homeAdmin');
+    Route::resource('room', 'Admin\RoomController');
+});
