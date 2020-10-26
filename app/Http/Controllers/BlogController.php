@@ -35,8 +35,7 @@ class BlogController extends SiteController
     {
         $blog = $this->getBlog(false, config('settings.count_blog'));
 
-        $content = view(env('THEME') . '.' . $this->page . '.content', compact(['blog']))->render();
-        $this->vars = Arr::add($this->vars, 'content', $content);
+        $this->content = view(env('THEME') . '.' . $this->page . '.content', compact(['blog']))->render();
 
         return $this->renderOutput();
     }
@@ -54,8 +53,7 @@ class BlogController extends SiteController
 
         $socials = $this->getSocial();
 
-        $content = view(env('THEME') . '.' . $this->page . '.one', compact(['blog', 'socials']))->render();
-        $this->vars = Arr::add($this->vars, 'content', $content);
+        $this->content = view(env('THEME') . '.' . $this->page . '.one', compact(['blog', 'socials']))->render();
 
         return $this->renderOutput();
     }

@@ -35,8 +35,7 @@ class UsersController extends SiteController
     public function edit()
     {
         $user = Auth::user();
-        $content = view(env('THEME') . '.auth.content_user', compact('user'));
-        $this->vars = Arr::add($this->vars, 'content', $content);
+        $this->content = view(env('THEME') . '.auth.content_user', compact('user'));
 
         return $this->renderOutput();
     }

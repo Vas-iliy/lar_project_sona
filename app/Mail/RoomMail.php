@@ -23,6 +23,7 @@ class RoomMail extends Mailable
     {
         $this->cod = $cod;
         $this->alias = $alias;
+
     }
 
     /**

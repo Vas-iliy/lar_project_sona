@@ -39,8 +39,7 @@ class RegisterController extends SiteController
 
     public function index() {
         if (Auth::guest()) {
-            $content = view(env('THEME') . '.auth.content_register')->render();
-            $this->vars = Arr::add($this->vars, 'content', $content);
+            $this->content = view(env('THEME') . '.auth.content_register')->render();
 
             return $this->renderOutput();
         }
@@ -66,8 +65,7 @@ class RegisterController extends SiteController
 
     public function login() {
         if (!Auth::check()) {
-            $content = view(env('THEME') . '.' . $this->page . '.content_login')->render();
-            $this->vars = Arr::add($this->vars, 'content', $content);
+            $this->content = view(env('THEME') . '.' . $this->page . '.content_login')->render();
 
             return $this->renderOutput();
         }

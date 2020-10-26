@@ -33,6 +33,7 @@ class SiteController extends Controller
 
     protected $page;
     protected $template;
+    protected $content = false;
     protected $vars = [];
 
     public function __construct(PageRepository $page_rep, SocialRepository $social_rep, ContactRepository $contact_rep,
@@ -62,6 +63,10 @@ class SiteController extends Controller
         $text = $this->getTextOne(['position', 'footer']);
         $soc = $this->getSocial();
         $contact = $this->getContact();
+
+        if ($this->content) {
+            $this->vars = Arr::add($this->vars, 'content', $this->content);
+        }
 
         $footer = view(env('THEME') . '.footer', compact(['text', 'soc', 'contact']))->render();
         $this->vars = Arr::add($this->vars, 'footer', $footer);

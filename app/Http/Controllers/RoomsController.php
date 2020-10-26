@@ -56,8 +56,7 @@ class RoomsController extends SiteController
     {
         $rooms = $this->getRoom(false, $alias, config('settings.count_rooms'));
 
-        $content = view(env('THEME') . '.' . $this->page . '.content', compact(['rooms', 'alias']))->render();
-        $this->vars = Arr::add($this->vars, 'content', $content);
+        $this->content = view(env('THEME') . '.' . $this->page . '.content', compact(['rooms', 'alias']))->render();
 
         return $this->renderOutput();
     }
@@ -82,8 +81,7 @@ class RoomsController extends SiteController
             }
         }
 
-        $content = view(env('THEME') . '.' . $this->page . '.one', compact(['room', 'comments', 'user']))->render();
-        $this->vars = Arr::add($this->vars, 'content', $content);
+        $this->content = view(env('THEME') . '.' . $this->page . '.one', compact(['room', 'comments', 'user']))->render();
 
         return $this->renderOutput();
     }
@@ -149,8 +147,7 @@ class RoomsController extends SiteController
             $rooms = $this->room_rep->searchRooms($search);
             $count = $request['room'];
 
-            $content = view(env('THEME') . '.' . $this->page . '.search', compact(['rooms', 'count']))->render();
-            $this->vars = Arr::add($this->vars, 'content', $content);
+            $this->content = view(env('THEME') . '.' . $this->page . '.search', compact(['rooms', 'count']))->render();
 
             return $this->renderOutput();
         }

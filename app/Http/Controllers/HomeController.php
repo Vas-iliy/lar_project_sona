@@ -38,9 +38,8 @@ class HomeController extends SiteController
         $comments = $this->getComment(config('settings.count_comments_home'));
         $blog = $this->getBlog(config('settings.count_blog_home'));
 
-        $content = view(env('THEME') . '.' . $this->page .'.content', compact(['images', 'text', 'imagesAbout',
+        $this->content = view(env('THEME') . '.' . $this->page .'.content', compact(['images', 'text', 'imagesAbout',
             'services', 'rooms', 'comments', 'blog']))->render();
-        $this->vars = Arr::add($this->vars, 'content', $content);
 
         return $this->renderOutput();
     }

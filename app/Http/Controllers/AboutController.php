@@ -33,8 +33,7 @@ class AboutController extends SiteController
         $services = $this->getService(['page_id', $id]);
         $images = $this->getImage(['page_id', $id]);
 
-        $content = view(env('THEME') . '.' . $this->page . '.content', compact(['text', 'services', 'images']))->render();
-        $this->vars = Arr::add($this->vars, 'content', $content);
+        $this->content = view(env('THEME') . '.' . $this->page . '.content', compact(['text', 'services', 'images']))->render();
 
         return $this->renderOutput();
     }
