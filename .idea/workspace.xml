@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d40237bf-002b-40e9-b502-36ffb5b41487" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/sona/email.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Check.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Check.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Fact.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Fact.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RoomsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RoomsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/RoomRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/RoomRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_25_060345_change_rooms_table3.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/sona/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/sona/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/sona/css/site.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/sona/layouts/site.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sona/layouts/site.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -185,7 +186,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/sona/img/icons" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -198,11 +199,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\server\OpenServer\domains\lar_project_sona\public\sona\img\icons" />
       <recent name="D:\server\OpenServer\domains\lar_project_sona\app\Repositories" />
       <recent name="D:\server\OpenServer\domains\lar_project_sona\app\Http\Controllers" />
       <recent name="D:\server\OpenServer\domains\lar_project_sona\resources\views\sona" />
       <recent name="D:\server\OpenServer\domains\lar_project_sona\resources" />
-      <recent name="D:\server\OpenServer\domains\lar_project_sona\app" />
     </key>
   </component>
   <component name="RunManager">
@@ -229,7 +230,7 @@
       <workItem from="1603593878162" duration="101000" />
       <workItem from="1603599611513" duration="8318000" />
       <workItem from="1603620100352" duration="8970000" />
-      <workItem from="1603689169473" duration="9623000" />
+      <workItem from="1603689169473" duration="17313000" />
     </task>
     <servers />
   </component>
@@ -265,10 +266,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="495" y="227" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1602775769381" />
-    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1603624492921">
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1603703207387">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1603624492921" />
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1603703207387" />
     <state x="277" y="55" key="SettingsEditor" timestamp="1603225905640">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

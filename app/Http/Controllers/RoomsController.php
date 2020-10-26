@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
-use App\Fact;
 use App\Http\Requests\CommentsRequest;
 use App\Http\Requests\ReservationRequest;
 use App\Http\Requests\SearchRequest;
+use App\Mail\RoomMail;
 use App\Repositories\BlogRepository;
 use App\Repositories\CheckRepository;
 use App\Repositories\CommentRepository;
@@ -23,6 +23,8 @@ use App\Repositories\UserRepository;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class RoomsController extends SiteController
 {
@@ -67,16 +69,27 @@ class RoomsController extends SiteController
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Throwable
      */
-    public function show($alias)
+    public function show(Request $request, $alias)
     {
         $room = $this->room_rep->one('*', ['alias', $alias]);
         $comments = $this->getComment(false, ['room_id', $room->id]);
         $user = $this->getUser(Auth::id(), $room->id);
 
+        if ($request->has('cod')) {
+            $check = $this->getCheck(['cod', $request->get('cod')]);
+            if ($check) {
+                $check->fill(['confirmed' => 1])->update();
+            }
+        }
+
         $content = view(env('THEME') . '.' . $this->page . '.one', compact(['room', 'comments', 'user']))->render();
         $this->vars = Arr::add($this->vars, 'content', $content);
 
         return $this->renderOutput();
+    }
+
+    private function getCheck($where) {
+        return $this->check_rep->one('*', $where);
     }
 
     private function getUser($id, $r) {
@@ -105,6 +118,7 @@ class RoomsController extends SiteController
             $search['checkIn'] = $this->dateChange($search['checkIn'], $format);
             $search['checkOut'] = $this->dateChange($search['checkOut'], $format);
             $search['alias'] = $alias;
+            $search['cod'] = Str::random(255);
 
             if ($this->room_rep->checkDate($search)) {
                 return back()->with($this->room_rep->checkDate($search));
@@ -116,6 +130,8 @@ class RoomsController extends SiteController
             if (!empty($result['error'])) {
                 return back()->with($result);
             }
+
+            $this->email($search, $alias);
 
             return back()->with($result);
         }
@@ -148,6 +164,15 @@ class RoomsController extends SiteController
         $comment->fill($data);
         if ($comment->save()) {
             return redirect()->back();
+        }
+    }
+
+    public function email($search, $alias) {
+        if (Auth::check()) {
+                Mail::to(Auth::user()->email)->send(new RoomMail($search['cod'], $alias));
+            }
+        else {
+            Mail::to($search['email'])->send(new RoomMail($search['cod'], $alias));
         }
     }
 }

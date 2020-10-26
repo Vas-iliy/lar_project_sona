@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Check extends Model
 {
-    protected $fillable = ['check_in', 'check_out', 'room_id', 'count_id', 'fact_id'];
+    protected $fillable = ['check_in', 'check_out', 'room_id', 'count_id', 'fact_id', 'cod', 'confirmed'];
 
     public function room() {
         return $this->belongsTo('App\Room');

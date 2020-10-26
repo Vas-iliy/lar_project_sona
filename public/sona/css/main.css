@@ -1,1 +1,57 @@
-
+.room-pagination > a.active{
+    background-color: #dfa974;
+    color: white;
+}
+img.search-img {
+    min-width: 50%;
+    height: 150px;
+}
+.auth {
+    margin-top: 13px;
+}
+.auth a {
+    color: #dfa974;
+    margin-left: 10px;
+}
+.person {
+    text-align: center;
+}
+.btn-person {
+    color: #dfa974;
+}
+div.box {
+    border-radius: 6px 6px 6px 6px;
+    font-size: 108.3%;
+    margin: 2px 0 15px;
+    padding: 20px 15px 20px 65px;
+}
+div.success-box {
+    background: no-repeat scroll 15px center #EBFAB6;
+    border: 1px solid #BBCC5B;
+    color: #599847;
+}
+div.arrow-box {
+    background: no-repeat scroll 15px center #EBFAB6;
+    border: 1px solid #BBCC5B;
+    color: #599847;
+}
+div.alert-box {
+    background: no-repeat scroll 15px center #FBDD96;
+    border: 1px solid #E5AF51;
+    color: #CA6B1C;
+}
+div.error-box {
+    background: no-repeat scroll 15px center #FDD2D1;
+    border: 1px solid #F6988F;
+    color: #883333;
+}
+div.notice-box {
+    background: no-repeat scroll 15px center #F9EBCA;
+    border: 1px solid #E5B2AC;
+    color: #9F6722;
+}
+div.info-box {
+    background: no-repeat scroll 15px center #E6EBF0;
+    border: 1px solid #89BECD;
+    color: #277DCE;
+}

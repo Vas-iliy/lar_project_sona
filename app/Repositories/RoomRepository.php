@@ -8,6 +8,7 @@ use App\Fact;
 use App\Room;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Psy\Util\Str;
 
 class RoomRepository extends Repository
 {
@@ -79,13 +80,13 @@ class RoomRepository extends Repository
                     $this->factInsert($atrFact);
                     $atrFact_room = ['room_id' => $id, 'fact_id' => Fact::max('id')];
                     $atrCheck = ['check_in' => $search['checkIn'], 'check_out' => $search['checkOut'], 'room_id' => $id,
-                        'count_id' => $search['room'], 'fact_id' => Fact::max('id')];
+                        'count_id' => $search['room'], 'fact_id' => Fact::max('id'), 'cod' => $search['cod']];
                 }
                 else {
                     $fact->fill($atrFact)->update();
                     $atrFact_room = ['room_id' => $id, 'fact_id' => $fact->id];
                     $atrCheck = ['check_in' => $search['checkIn'], 'check_out' => $search['checkOut'], 'room_id' => $id,
-                        'count_id' => $search['room'], 'fact_id' => $fact->id];
+                        'count_id' => $search['room'], 'fact_id' => $fact->id, 'cod' => $search['cod']];
                 }
 
                 $this->fact_roomInsert('fact_room', $atrFact_room);
@@ -95,7 +96,7 @@ class RoomRepository extends Repository
                 $atrFact_room = ['room_id' => $id, 'fact_id' => Auth::user()->fact->id];
                 $this->fact_roomInsert('fact_room', $atrFact_room);
                 $atrCheck = ['check_in' => $search['checkIn'], 'check_out' => $search['checkOut'], 'room_id' => $id,
-                    'count_id' => $search['room'], 'fact_id' => Auth::user()->fact->id];
+                    'count_id' => $search['room'], 'fact_id' => Auth::user()->fact->id, 'cod' => $search['cod']];
             }
 
             $this->checkInsert($atrCheck);
@@ -114,14 +115,17 @@ class RoomRepository extends Repository
         else {
             $guest = $this->getFact(['email', $search['email']]);
         }
-        foreach ($guest->checks as $check) {
-            if ($check->check_in <= $search['checkIn'] && $check->check_out > $search['checkIn'] && $check->confirmed == 0) {
-                return ['error' => 'Вы уже зарезервировали комнату на эти даты. Перейдите на почту и подтвердите заезд'];
-            }
-            elseif ($check->check_in <= $search['checkIn'] && $check->check_out > $search['checkIn'] && $check->confirmed == 1) {
-                return ['error' => 'Вы уже зарезервировали комнату на эти даты'];
+        if ($guest) {
+            foreach ($guest->checks as $check) {
+                if ($check->check_in <= $search['checkIn'] && $check->check_out > $search['checkIn'] && $check->confirmed == 0) {
+                    return ['error' => 'Вы уже зарезервировали комнату на эти даты. Перейдите на почту и подтвердите заезд'];
+                }
+                elseif ($check->check_in <= $search['checkIn'] && $check->check_out > $search['checkIn'] && $check->confirmed == 1) {
+                    return ['error' => 'Вы уже зарезервировали комнату на эти даты'];
+                }
             }
         }
+
         return false;
     }
 

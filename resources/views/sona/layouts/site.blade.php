@@ -24,34 +24,35 @@
     <link rel="stylesheet" href="{{asset(env('THEME'))}}/css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="{{asset(env('THEME'))}}/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="{{asset(env('THEME'))}}/css/style.css" type="text/css">
-    <link rel="stylesheet" href="{{asset(env('THEME'))}}/css/site.css" type="text/css">
+    <link rel="stylesheet" href="{{asset(env('THEME'))}}/css/main.css" type="text/css">
 </head>
 
 <body>
 
 @yield('navigations')
+<div class="container">
+    @if (count($errors) > 0)
+        <div class="box error-box">
 
-@if(isset($errors))
-    <div style="background-color:red; text-align: center;" >
-        <ul>
-            @foreach($errors->all() as $error)
-                <li style="list-style-type: none"><h3>{{$error}}</h3></li>
+            @foreach ($errors->all() as $error)
+                <p>{{ $error }}</p>
             @endforeach
-        </ul>
-    </div>
-@endif
 
-@if(session('status'))
-    <div class="box success-box">
-        {{session('status')}}
-    </div>
-@endif
+        </div>
+    @endif
 
-@if(session('error'))
-    <div class="box success-box">
-        {{session('error')}}
-    </div>
-@endif
+    @if (session('status'))
+        <div class="box success-box">
+            {{ session('status') }}
+        </div>
+    @endif
+
+    @if (session('error'))
+        <div class="box error-box">
+            {{ session('error') }}
+        </div>
+    @endif
+</div>
 
 @yield('content')
 
