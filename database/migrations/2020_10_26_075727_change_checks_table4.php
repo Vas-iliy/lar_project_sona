@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ChangeRoomsTable3 extends Migration
+class ChangeChecksTable4 extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class ChangeRoomsTable3 extends Migration
      */
     public function up()
     {
-        Schema::table('rooms', function (Blueprint $table) {
-            $table->string('alias')->nullable()->after('title');
-            $table->timestamps();
+        Schema::table('checks', function (Blueprint $table) {
+            $table->integer('confirmed')->default(0)->after('fact_id');
         });
     }
 
@@ -26,7 +25,7 @@ class ChangeRoomsTable3 extends Migration
      */
     public function down()
     {
-        Schema::table('rooms', function (Blueprint $table) {
+        Schema::table('checks', function (Blueprint $table) {
             //
         });
     }

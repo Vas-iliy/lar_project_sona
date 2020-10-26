@@ -14,6 +14,7 @@ class RoomRepository extends Repository
     protected $check_rep;
     protected $fact_rep;
     protected $db_rep;
+
     public function __construct(Room $room, CheckRepository $check_rep, FactRepository $fact_rep, DbRepository $db_rep)
     {
         $this->model = $room;
@@ -71,26 +72,62 @@ class RoomRepository extends Repository
     public function reservations($data, $search) {
         if ($data) {
             $id = $this->model->select('id')->where('alias', $search['alias'])->first()->id;
-            $atrCheck = ['check_in' => $search['checkIn'], 'check_out' => $search['checkOut'], 'room_id' => $id, 'count_id' => $search['room']];
-            $this->checkInsert($atrCheck);
             if (!Auth::check()) {
                 $atrFact = ['name' => $search['name'], 'email' => $search['email'], 'phone' => $search['phone']];
-                $this->factInsert($atrFact);
-                $atrFact_room = ['room_id' => $id, 'fact_id' => Fact::max('id')];
+                $fact = $this->getFact(['email', $atrFact['email']]);
+                if (!$fact) {
+                    $this->factInsert($atrFact);
+                    $atrFact_room = ['room_id' => $id, 'fact_id' => Fact::max('id')];
+                    $atrCheck = ['check_in' => $search['checkIn'], 'check_out' => $search['checkOut'], 'room_id' => $id,
+                        'count_id' => $search['room'], 'fact_id' => Fact::max('id')];
+                }
+                else {
+                    $fact->fill($atrFact)->update();
+                    $atrFact_room = ['room_id' => $id, 'fact_id' => $fact->id];
+                    $atrCheck = ['check_in' => $search['checkIn'], 'check_out' => $search['checkOut'], 'room_id' => $id,
+                        'count_id' => $search['room'], 'fact_id' => $fact->id];
+                }
+
                 $this->fact_roomInsert('fact_room', $atrFact_room);
+
             }
             else {
                 $atrFact_room = ['room_id' => $id, 'fact_id' => Auth::user()->fact->id];
                 $this->fact_roomInsert('fact_room', $atrFact_room);
+                $atrCheck = ['check_in' => $search['checkIn'], 'check_out' => $search['checkOut'], 'room_id' => $id,
+                    'count_id' => $search['room'], 'fact_id' => Auth::user()->fact->id];
             }
+
+            $this->checkInsert($atrCheck);
 
             return ['status' => 'Вы зарезервировали эту комнату'];
         }
         else {
-            return ['status' => 'На эту дату такой комнаты нет, выбирите другую'];
+            return ['error' => 'На эту дату такой комнаты нет, выбирите другую'];
         }
     }
 
+    public function checkDate($search) {
+        if (Auth::check()) {
+            $guest = Auth::user()->fact;
+        }
+        else {
+            $guest = $this->getFact(['email', $search['email']]);
+        }
+        foreach ($guest->checks as $check) {
+            if ($check->check_in <= $search['checkIn'] && $check->check_out > $search['checkIn'] && $check->confirmed == 0) {
+                return ['error' => 'Вы уже зарезервировали комнату на эти даты. Перейдите на почту и подтвердите заезд'];
+            }
+            elseif ($check->check_in <= $search['checkIn'] && $check->check_out > $search['checkIn'] && $check->confirmed == 1) {
+                return ['error' => 'Вы уже зарезервировали комнату на эти даты'];
+            }
+        }
+        return false;
+    }
+
+    private function getFact($where) {
+        return $this->fact_rep->one('*',$where);
+    }
     private function checkInsert($atr) {
         return $this->check_rep->insert($atr);
     }
@@ -100,4 +137,6 @@ class RoomRepository extends Repository
     private function fact_roomInsert($table, $atr) {
         return $this->db_rep->db($table, $atr);
     }
+
+
 }

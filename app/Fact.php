@@ -18,4 +18,8 @@ class Fact extends Model
     public function ratings() {
         return $this->belongsToMany('App\Rating');
     }
+
+    public function checks() {
+        return $this->hasMany('App\Check');
+    }
 }

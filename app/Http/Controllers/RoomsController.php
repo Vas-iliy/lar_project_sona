@@ -106,8 +106,16 @@ class RoomsController extends SiteController
             $search['checkOut'] = $this->dateChange($search['checkOut'], $format);
             $search['alias'] = $alias;
 
+            if ($this->room_rep->checkDate($search)) {
+                return back()->with($this->room_rep->checkDate($search));
+            }
+
             $data = $this->room_rep->searchRooms($search);
             $result = $this->room_rep->reservations($data, $search);
+
+            if (!empty($result['error'])) {
+                return back()->with($result);
+            }
 
             return back()->with($result);
         }
@@ -120,6 +128,7 @@ class RoomsController extends SiteController
             $format = 'Y-m-d';
             $search['checkIn'] = $this->dateChange($search['checkIn'], $format);
             $search['checkOut'] = $this->dateChange($search['checkOut'], $format);
+            $this->room_rep->checkDate($search);
 
             $rooms = $this->room_rep->searchRooms($search);
             $count = $request['room'];

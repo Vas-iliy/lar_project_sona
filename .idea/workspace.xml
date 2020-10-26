@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d40237bf-002b-40e9-b502-36ffb5b41487" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Check.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Check.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Fact.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Fact.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RoomsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RoomsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/RoomRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/RoomRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_25_060345_change_rooms_table3.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sona/layouts/site.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sona/layouts/site.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +229,7 @@
       <workItem from="1603593878162" duration="101000" />
       <workItem from="1603599611513" duration="8318000" />
       <workItem from="1603620100352" duration="8970000" />
-      <workItem from="1603689169473" duration="3286000" />
+      <workItem from="1603689169473" duration="9623000" />
     </task>
     <servers />
   </component>

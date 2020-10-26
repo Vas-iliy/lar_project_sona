@@ -47,6 +47,12 @@
     </div>
 @endif
 
+@if(session('error'))
+    <div class="box success-box">
+        {{session('error')}}
+    </div>
+@endif
+
 @yield('content')
 
 
